@@ -26,6 +26,7 @@ const servicos = [
 export default function Servicos() {
   return (
     <>
+      <Text>Serviço</Text>
       <FlatList data={servicos} renderItem={({ item }) => <Item {...item} />} keyExtractor={({ id }) => String(id)} />
     </>
   );
