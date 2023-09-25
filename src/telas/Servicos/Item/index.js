@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity, Pressable } from "react-native";
 import estilos from "./estilos";
 import CampoInteiro from "../../../componentes/CampoInteiro";
 import Botao from "../../../componentes/Botao";
@@ -25,7 +25,7 @@ export default function Item({ nome, preco, descricao }) {
 
   return (
     <>
-      <TouchableOpacity style={estilos.informacao} onPress={inverteExpandir}>
+      {/* <TouchableOpacity style={estilos.informacao} onPress={inverteExpandir}>
         <Text style={estilos.nome}>{nome}</Text>
         <Text style={estilos.descricao}>{descricao}</Text>
         <Text style={estilos.preco}>
@@ -34,7 +34,22 @@ export default function Item({ nome, preco, descricao }) {
             currency: "BRL",
           }).format(preco)}
         </Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+      <Pressable style={({ pressed }) => [estilos.informacao, pressed && { opacity: 0.5 }]} onPress={inverteExpandir}>
+        {({ pressed }) => (
+          <>
+            <Text style={estilos.nome}>{nome}</Text>
+            <Text style={estilos.descricao}>{descricao}</Text>
+            <Text style={estilos.preco}>
+              {Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              }).format(preco)}
+            </Text>
+          </>
+        )}
+      </Pressable>
+
       {expandir && (
         <View style={estilos.carrinho}>
           <View>
@@ -52,7 +67,7 @@ export default function Item({ nome, preco, descricao }) {
               </Text>
             </View>
           </View>
-          <Botao valor="Adicionar" acao={() => {}} />
+          <Botao valor="Adicionar ao Carrinho" acao={() => {}} />
         </View>
       )}
       <View style={estilos.divisor}></View>

@@ -1,6 +1,8 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { FlatList, SafeAreaView, StatusBar } from "react-native";
 import Item from "./Item";
+
+import estilosGlobal from "../../estilos";
 
 const servicos = [
   {
@@ -25,8 +27,9 @@ const servicos = [
 
 export default function Servicos() {
   return (
-    <>
+    <SafeAreaView style={estilosGlobal.preencher}>
+      <StatusBar />
       <FlatList data={servicos} removeClippedSubviews={false} renderItem={({ item }) => <Item {...item} />} keyExtractor={({ id }) => String(id)} />
-    </>
+    </SafeAreaView>
   );
 }
