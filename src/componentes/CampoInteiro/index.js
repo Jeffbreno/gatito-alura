@@ -16,7 +16,7 @@ export default function CampoInteiro({ valor, estilos, acao }) {
   return (
     <TextInput
       style={[estilosPadrao.campo, estilos]}
-      inputMode="number-pad"
+      inputMode="numeric"
       selectTextOnFocus
       onChangeText={(novoValor) => {
         atualiza(novoValor, acao);
