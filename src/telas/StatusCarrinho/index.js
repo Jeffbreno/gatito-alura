@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import estilos from "./estilos";
+import Botao from "../../componentes/Botao";
 
 export default function StatusCarrinho({ total }) {
   return (
@@ -13,6 +14,9 @@ export default function StatusCarrinho({ total }) {
             currency: "BRL",
           }).format(total)}
         </Text>
+      </View>
+      <View style={estilos.botao}>
+        <Botao valor={"Concluir Pedido"} invertido />
       </View>
     </View>
   );
