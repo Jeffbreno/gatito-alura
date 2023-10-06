@@ -19,24 +19,20 @@ export default function Rotas() {
           tabBarInactiveTintColor: cores.claro,
           tabBarActiveBackgroundColor: cores.roxo,
           tabBarInactiveBackgroundColor: cores.laranja,
-          tabBarStyle:{
-            // display: "flex",
-            // flexDirection: "row",
-            // justifyContent: "center",
-            // alignItems: "center",
-            height: 80
+          tabBarStyle: {
+            height: 60,
           },
           tabBarLabelStyle: {
             width: "100%",
-            height: 80,
-            fontWeight: "bold",
-            fontSize: 16,
+            height: 50,
+            lineHeight: 21,
             marginTop: 3,
             paddingTop: 21,
-            lineHeight: 25,
+            fontSize: 16,
             backgroundColor: cores.laranja,
           },
-        })}>
+        })}
+        keyboardHidesTabBar>
         <Tab.Screen
           name="Serviços"
           component={Servicos}
